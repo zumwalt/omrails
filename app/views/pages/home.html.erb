@@ -1,7 +1,10 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome to <%= link_to "OMRails", "http://localhost:3000/" %></h1>
-    <p>This is the home page.</p>
-    <%= link_to "Sign Up Now", "#", {:class => "btn btn-default"} %>
-  </div>
-</div>
+  <% if user_signed_in? %>
+    <h1>Good jorb!</h1>
+  <% else %>
+    <div class="jumbotron">
+      <h1>Welcome to <%= link_to "OMRails", "http://localhost:3000/" %></h1>
+      <p>This is the home page.</p>
+      <%= link_to "Sign Up Now", new_user_registration_path, {:class => "btn btn-default"} %>
+    </div>
+  <% end %>
+
