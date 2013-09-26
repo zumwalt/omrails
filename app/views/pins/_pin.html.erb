@@ -1,10 +1,14 @@
 <tr>
+  <td><%= image_tag pin.image(:medium) %></td>
   <td><%= pin.description %></td>
   <td>
-    <%= link_to 'Show', pin, class: 'btn btn-mini' %>
-    <% if current_user == pin.user %>
-      <%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-mini' %>
-      <%= link_to 'Destroy', pin, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end #if current_user %>
+    <ul class="inline pull-right">
+      <li><%= link_to 'Show', pin, class: 'btn btn-mini' %></li>
+      <% if current_user == pin.user %>
+        <li><%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-mini' %></li>
+        <li><%= link_to 'Destroy', pin, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end #if current_user %>
+    </ul>
+
   </td>
 </tr>
