@@ -1,4 +1,10 @@
 <tr>
   <td><%= pin.description %></td>
-  <td><%= link_to 'Show', pin, class: 'btn btn-mini' %> <%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-mini' %> <%= link_to 'Destroy', pin, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td>
+    <%= link_to 'Show', pin, class: 'btn btn-mini' %>
+    <% if current_user == pin.user %>
+      <%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-mini' %>
+      <%= link_to 'Destroy', pin, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end #if current_user %>
+  </td>
 </tr>
